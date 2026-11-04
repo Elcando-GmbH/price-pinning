@@ -50,7 +50,8 @@ A run on 324 US stocks on 2 Nov 2026 produced 36 flags:
   meant) that cannot be made in a historical study. Every manual review would need a fixed default,
   and that default would be the actual rule.
 
-The filing reader is not part of this package.
+The filing reader is kept in `pricepinning.filings` so that the evidence can be reproduced.
+The pinning flag (D2) does not use it.
 
 ## D2 — Flag price pinning from the price series alone (adopted 2 Nov 2026)
 

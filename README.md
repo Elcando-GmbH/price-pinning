@@ -27,6 +27,17 @@ the announcement, while other stocks fell below the threshold on 0.017 % of stoc
 3,958 series back to 2000, 34 clear cases were flagged after a median of 11 trading days.
 Decision log with the rejected filing-based approach, calibration, alternatives tested against criteria set in advance, and limits: [docs/DECISIONS.md](docs/DECISIONS.md).
 
+## Why not read the filings?
+
+Detecting takeovers from SEC filings is the obvious approach, and it was tried first. On 324
+US stocks it produced 36 flags, 31 of which needed a person to read the filing, and 2 of 5
+stocks classified as targets were wrong. The reasons are in
+[docs/DECISIONS.md](docs/DECISIONS.md#d1--detect-pending-takeovers-from-sec-filings-rejected-2-nov-2026) (D1).
+The filing reader that produced this evidence is included as `pricepinning.filings`
+(`classify`, `cik_map`, `header_roles`): it reads a company's EDGAR submissions point in time
+and tells target from acquirer by one-sided evidence. It downloads nothing; the caller passes
+in the SEC JSON and headers. It is not used by the pinning flag.
+
 ## Install
 
 ```bash
