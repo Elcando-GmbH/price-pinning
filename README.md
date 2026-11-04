@@ -25,14 +25,14 @@ deviations, because a single announcement jump would hold a standard deviation u
 On 324 US large caps (2025–2026), two cash takeovers were flagged 9 and 14 trading days after
 the announcement, while other stocks fell below the threshold on 0.017 % of stock-days. On
 3,958 series back to 2000, 34 clear cases were flagged after a median of 11 trading days.
-Decision log with the rejected filing-based approach, calibration, alternatives tested against criteria set in advance, and limits: [docs/DECISIONS.md](docs/DECISIONS.md).
+Decision log with the rejected filing-based approach, calibration, alternatives tested against criteria set in advance, and limits: [docs/DECISIONS.md](https://github.com/Elcando-GmbH/price-pinning/blob/main/docs/DECISIONS.md).
 
 ## Why not read the filings?
 
 Detecting takeovers from SEC filings is the obvious approach, and it was tried first. On 324
 US stocks it produced 36 flags, 31 of which needed a person to read the filing, and 2 of 5
 stocks classified as targets were wrong. The reasons are in
-[docs/DECISIONS.md](docs/DECISIONS.md#d1--detect-pending-takeovers-from-sec-filings-rejected-2-nov-2026) (D1).
+[docs/DECISIONS.md](https://github.com/Elcando-GmbH/price-pinning/blob/main/docs/DECISIONS.md#d1--detect-pending-takeovers-from-sec-filings-rejected-2-nov-2026) (D1).
 The filing reader that produced this evidence is included as `pricepinning.filings`
 (`classify`, `cik_map`, `header_roles`): it reads a company's EDGAR submissions point in time
 and tells target from acquirer by one-sided evidence. It downloads nothing; the caller passes
@@ -82,7 +82,7 @@ All tests run offline.
 - The flag comes 9 to 14 trading days after an announcement (median 11 in the wider data).
 - A deal that keeps the price pinned for more than about 126 trading days is no longer flagged:
   by then the quiet days dominate the one-year reference. Four fixes were tested against criteria
-  set in advance; none passed ([DECISIONS.md](docs/DECISIONS.md#long-deals)).
+  set in advance; none passed ([DECISIONS.md](https://github.com/Elcando-GmbH/price-pinning/blob/main/docs/DECISIONS.md#long-deals)).
 - Stock and cash-and-stock deals are not flagged while the price moves with the acquirer.
 - Calibrated on two current cases in large caps; the wider check adds 34 historical cases.
 
