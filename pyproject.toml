@@ -1,0 +1,45 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "pricepinning"
+dynamic = ["version"]
+description = "Detect stocks whose price has stopped moving, typically after a cash takeover offer, from prices alone"
+readme = "README.md"
+license = "MIT"
+license-files = ["LICENSE"]
+requires-python = ">=3.11"
+authors = [{ name = "Laura Kruse-Stecher" }]
+maintainers = [{ name = "Elcando GmbH" }]
+keywords = ["stocks", "takeover", "merger arbitrage", "price pinning", "data quality", "quant"]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Financial and Insurance Industry",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Topic :: Office/Business :: Financial :: Investment",
+]
+dependencies = ["pandas>=2.0"]
+
+[project.optional-dependencies]
+dev = ["pytest>=8", "ruff==0.17.3"]
+
+[project.urls]
+Repository = "https://github.com/Elcando-GmbH/price-pinning"
+Issues = "https://github.com/Elcando-GmbH/price-pinning/issues"
+
+[tool.hatch.version]
+path = "src/pricepinning/__init__.py"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/pricepinning"]
+
+[tool.ruff]
+line-length = 120
+target-version = "py311"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
